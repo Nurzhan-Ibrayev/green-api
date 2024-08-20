@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green API Methods</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Green API Methods</h2>
+        <form method="post">
+            <input type="text" name="idInstance" placeholder="Enter idInstance" value="{{ form_data.get('idInstance', '') }}" required>
+            <input type="text" name="apiTokenInstance" placeholder="Enter ApiTokenInstance" value="{{ form_data.get('apiTokenInstance', '') }}" required>
+        
+            <button type="submit" name="get_settings">Get Settings</button>
+            <button type="submit" name="get_state_instance">Get State Instance</button>
+        
+            <input type="text" name="phoneNumberMessage" placeholder="Enter Phone Number for Message" id="phoneNumberMessage" value="{{ form_data.get('phoneNumberMessage', '') }}">
+            <input type="text" name="phoneMessage" placeholder="Enter Message" id="phoneMessage" value="{{ form_data.get('phoneMessage', '') }}">
+            <button type="submit" name="send_message" onclick="setRequired('phoneNumberMessage', 'phoneMessage')">Send Message</button>
+        
+            <input type="text" name="phoneNumberFile" placeholder="Enter Phone Number for File" id="phoneNumberFile" value="{{ form_data.get('phoneNumberFile', '') }}">
+            <input type="text" name="fileUrl" placeholder="Enter File URL" id="fileUrl" value="{{ form_data.get('fileUrl', '') }}">
+            <input type="text" name="fileName" placeholder="Enter File Name" id="fileName" value="{{ form_data.get('fileName', '') }}">
+            <button type="submit" name="send_file_by_url" onclick="setRequired('phoneNumberFile', 'fileUrl', 'fileName')">Send File by URL</button>
+        </form>
+        
+    </div>
+    <div class="results-container">
+
+        {% if result %}
+            <div class="result">
+                <p>{{ result }}</p>
+            </div>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

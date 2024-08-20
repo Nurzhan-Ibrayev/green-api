@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+.form-container,
+.results-container {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.form-container {
+    border-right: 1px solid #ddd;
+}
+.results-container {
+    border-left: 1px solid #ddd;
+    overflow-y: auto;
+}
+.form-container input,
+.form-container button {
+    display: block;
+    margin-bottom: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-container input {
+    padding: 8px;
+    font-size: 14px;
+}
+.form-container button {
+    padding: 10px; 
+    font-size: 14px;
+    cursor: pointer;
+}
+.form-container button:hover {
+    background-color: #f0f0f0;
+}
